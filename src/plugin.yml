@@ -1,0 +1,14 @@
+name: SurvivalGames
+main: org.scorpion.SurvivalGames
+version: 1.2-a
+api-version: 1.16
+author: NightDev401
+commands:
+  survivalgamesadmin:
+  sga:
+  start:
+  devmode:
+  lobby:
+  l:
+  hub:
+  h:
