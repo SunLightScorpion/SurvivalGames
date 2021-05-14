@@ -14,6 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.scorpion.SurvivalGames;
 import org.scorpion.state.GameState;
+import org.scorpion.util.table.StringTable;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class SurvivalGamesAPI {
     public static int taskProtection;
     
     public static String getPrefix(){
-        return "§8[§eSurvival Games§8] §f";
+        return "§8"+ StringTable.RIGHT_BAR+" §eSurvival Games §8"+StringTable.RIGHT_DOUBLE_ARROW+" §f";
     }
 
     public static void kickAll(){

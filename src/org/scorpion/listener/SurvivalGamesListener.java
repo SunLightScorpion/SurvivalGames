@@ -188,6 +188,9 @@ public class SurvivalGamesListener implements Listener{
     @EventHandler
     public void on(PlayerJoinEvent e){
         Player p = e.getPlayer();
+
+        ServerAPI.setAttackSpeed(p, 100);
+
         if(state.getState() != 0){
             p.setGameMode(GameMode.SPECTATOR);
             e.setJoinMessage(null);
