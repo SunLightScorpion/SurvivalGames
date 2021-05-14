@@ -3,7 +3,6 @@ package org.scorpion;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.scorpion.api.ServerAPI;
 import org.scorpion.api.SurvivalGamesAPI;
 import org.scorpion.commands.CommandDevMode;
 import org.scorpion.commands.CommandLobby;
