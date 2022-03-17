@@ -4,9 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.scorpion.api.SurvivalGamesAPI;
-import org.scorpion.commands.CommandDevMode;
-import org.scorpion.commands.CommandStart;
-import org.scorpion.commands.CommandSurvivalGamesAdmin;
+import org.scorpion.commands.*;
 import org.scorpion.listener.SurvivalGamesListener;
 import org.scorpion.state.GameState;
 
@@ -29,7 +27,6 @@ public class SurvivalGames extends JavaPlugin{
         Objects.requireNonNull(getCommand("survivalgamesadmin")).setExecutor(new CommandSurvivalGamesAdmin());
         Objects.requireNonNull(getCommand("sga")).setExecutor(new CommandSurvivalGamesAdmin());
         Objects.requireNonNull(getCommand("start")).setExecutor(new CommandStart());
-        Objects.requireNonNull(getCommand("devmode")).setExecutor(new CommandDevMode());
 
         taskTester = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> {
             if(state.getState() == 1){
