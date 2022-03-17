@@ -33,7 +33,7 @@ public class SurvivalGamesAPI {
     public static GameState state = new GameState(0);
     public static boolean protection = true;
     public final static int WAIT_TIME = 30;
-    public final static int MIN_PLAYERS = 2;
+    public final static int MIN_PLAYERS = getStartCount();
     private static int protection_time = 60;
     public static int taskProtection;
     
@@ -45,6 +45,24 @@ public class SurvivalGamesAPI {
         for(Player all : Bukkit.getOnlinePlayers()){
             all.kickPlayer("§cKicked from Server");
         }
+    }
+
+    public static void init(){
+        File file = new File("plugins/SurvivalGames/Settings.yml");
+
+        if(file.exists()){
+            return;
+        }
+
+        YamlConfiguration data = YamlConfiguration.loadConfiguration(file);
+        data.set("start-count", 4);
+        try{data.save(file);}catch(IOException ignored){}
+    }
+
+    public static int getStartCount(){
+        File file = new File("plugins/SurvivalGames/Settings.yml");
+        YamlConfiguration data = YamlConfiguration.loadConfiguration(file);
+        return data.getInt("start-count");
     }
 
     public static void count(){

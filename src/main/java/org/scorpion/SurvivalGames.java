@@ -23,6 +23,9 @@ public class SurvivalGames extends JavaPlugin{
     public void onEnable() {
         plugin = this;
         countdown = SurvivalGamesAPI.WAIT_TIME;
+
+        SurvivalGamesAPI.init();
+
         getServer().getPluginManager().registerEvents(new SurvivalGamesListener(), this);
         Objects.requireNonNull(getCommand("survivalgamesadmin")).setExecutor(new CommandSurvivalGamesAdmin());
         Objects.requireNonNull(getCommand("sga")).setExecutor(new CommandSurvivalGamesAdmin());
