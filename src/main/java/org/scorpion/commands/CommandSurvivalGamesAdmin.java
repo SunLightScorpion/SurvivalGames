@@ -20,12 +20,12 @@ public class CommandSurvivalGamesAdmin implements CommandExecutor{
                     String input = args[1];
                     if(data.equalsIgnoreCase("name")){
                         SurvivalGamesAPI.setGameName(input);
-                        p.sendMessage(SurvivalGamesAPI.getPrefix()+"§7Du hast die Arena §e"+input+" §7genannt!");
+                        p.sendMessage(SurvivalGamesAPI.getPrefix()+"§7You have named the arena §e"+input+" §7!");
                     }
                 }else if(args.length == 1){
                     String data = args[0];
                     if(data.equalsIgnoreCase("nextspawn")){
-                        p.sendMessage(SurvivalGamesAPI.getPrefix()+"§aDu hast Spawn '"+SurvivalGamesAPI.getCurrentCount()+"' gesetzt!");
+                        p.sendMessage(SurvivalGamesAPI.getPrefix()+"§aYou have set spawn §b"+SurvivalGamesAPI.getCurrentCount()+"§a!");
                         SurvivalGamesAPI.setSpawn(p.getLocation());
                         SurvivalGamesAPI.count();
                     }
@@ -36,7 +36,10 @@ public class CommandSurvivalGamesAdmin implements CommandExecutor{
                         Bukkit.reload();
                     }
                 }else{
-                    p.sendMessage("§aSG-Admin");
+                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§aSG-Admin:");
+                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§a/sga name <arena> §7| §6Set the name of the arena.");
+                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§a/sga nextspawn §7| §6Set the spawns of the players.");
+                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§a/sga finish §7| §6You are finish? Save the arena!");
                 }
             }else{
                 p.sendMessage(SurvivalGamesAPI.getPrefix()+"§7Version: §6"+SurvivalGames.getPlugin().getDescription().getVersion());

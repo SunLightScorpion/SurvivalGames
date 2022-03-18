@@ -39,7 +39,7 @@ public class SurvivalGamesListener implements Listener{
     @EventHandler
     public void on(AsyncPlayerPreLoginEvent e){
         if(state.getState() == 2){
-            e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cDas Spiel ist in der Endphase!");
+            e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§cThe game is in the final stage!");
         }
     }
 
@@ -201,7 +201,7 @@ public class SurvivalGamesListener implements Listener{
             return;
         }
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 1000");
-        e.setJoinMessage(SurvivalGamesAPI.getPrefix()+"§a"+p.getName()+" §7ist dem Spiel beigetreten");
+        e.setJoinMessage(SurvivalGamesAPI.getPrefix()+"§a"+p.getName()+" §7joined the game!");
         SurvivalGamesAPI.setupPlayers();
         if(!SurvivalGamesAPI.isArenaFinish()){
             return;
@@ -219,7 +219,7 @@ public class SurvivalGamesListener implements Listener{
         }
         //System.out.println("all: "+players+" - "+ SurvivalGamesAPI.survivalGamesPlayer.size());
         if(!SurvivalGamesAPI.isArenaFinish()){
-            p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cDie Arena muss eingestellt werden!");
+            p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cThe arena must be set!");
         }
     }
 
@@ -236,29 +236,6 @@ public class SurvivalGamesListener implements Listener{
         Player p = e.getPlayer();
         if(SurvivalGamesAPI.alive.contains(p)){
             e.setCancelled(true);
-        }
-    }
-
-    @EventHandler
-    public void on(PlayerCommandPreprocessEvent e){
-        Player p = e.getPlayer();
-        String message = e.getMessage().toLowerCase();
-        if(SurvivalGamesAPI.alive.contains(p)){
-            if(message.startsWith("/gamemode") ||
-                    message.startsWith("/gm") ||
-                    message.startsWith("/fly") ||
-                    message.startsWith("/heal") ||
-                    message.startsWith("/tp") ||
-                    message.startsWith("/minecraft:") ||
-                    message.startsWith("/ver") ||
-                    message.startsWith("/pl") ||
-                    message.startsWith("/about") ||
-                    message.startsWith("/bukkit:") ||
-                    message.startsWith("/spigot:") ||
-                    message.startsWith("/more")){
-                e.setCancelled(true);
-                p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cDu darfst diese Commands nicht im Spiel benutzen!");
-            }
         }
     }
 
@@ -302,7 +279,7 @@ public class SurvivalGamesListener implements Listener{
         if(e.getDamager() instanceof Player){
             if(SurvivalGamesAPI.protection){
                 Player p = (Player)e.getDamager();
-                p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cDie Schutzzeit ist noch nicht zuende!");
+                p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cThe protection period is not over yet!");
                 e.setCancelled(true);
             }
         }
@@ -311,7 +288,7 @@ public class SurvivalGamesListener implements Listener{
     @EventHandler
     public void on(PlayerQuitEvent e){
         Player p = e.getPlayer();
-        e.setQuitMessage(SurvivalGamesAPI.getPrefix()+"§c"+p.getName()+" §7ist aus dem Spiel ausgetreten");
+        e.setQuitMessage(SurvivalGamesAPI.getPrefix()+"§c"+p.getName()+" §7left the game!");
         if(SurvivalGamesAPI.survivalGamesPlayer.containsKey(p)){
             SurvivalGamesAPI.alive.remove(p);
             SurvivalGamesAPI.survivalGamesPlayer.remove(p);

@@ -19,9 +19,9 @@ public class CommandStart implements CommandExecutor{
                         && SurvivalGamesAPI.state.getState() == 0
                         && SurvivalGamesAPI.survivalGamesPlayer.size() >= SurvivalGamesAPI.MIN_PLAYERS){
                     SurvivalGames.countdown = 11;
-                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§aDu hast das Spiel gestartet!");
+                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§aThe game will be start...");
                 }else{
-                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cDu kannst das Spiel nicht starten!");
+                    p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cYou can't start the game!");
                 }
             }
         }
