@@ -184,14 +184,14 @@ public class SurvivalGamesAPI {
         taskProtection = Bukkit.getScheduler().scheduleSyncRepeatingTask(SurvivalGames.getPlugin(), () -> {
             protection_time--;
             for(Player all : Bukkit.getOnlinePlayers()){
-                sendActionBar(all, "§8[§aSchutzzeit: §3"+protection_time+" Sekunden§8]");
+                sendActionBar(all, "§8[§aProtection time: §3"+protection_time+" seconds§8]");
             }
             if(protection_time == 0){
                 protection = false;
                 for(Player player : alive){
                     player.playSound(player.getLocation(), Sound.ITEM_SHIELD_BLOCK, 2, 1);
                 }
-                Bukkit.broadcastMessage(SurvivalGamesAPI.getPrefix()+"§aPVP ist nun aktiv, viel Glück!");
+                Bukkit.broadcastMessage(SurvivalGamesAPI.getPrefix()+"§aPVP is active, good luck!");
                 Bukkit.getScheduler().cancelTask(taskProtection);
             }
         }, 20, 20);
@@ -204,7 +204,7 @@ public class SurvivalGamesAPI {
     }
 
     public static void stopGame(){
-        Bukkit.broadcastMessage(SurvivalGamesAPI.getPrefix()+"§aDer Server wird in §e20 Sekunden §azurückgesetzt!");
+        Bukkit.broadcastMessage(SurvivalGamesAPI.getPrefix()+"§aThe server will be restart in §e20 §aseconds!");
         clearAllPlayers();
         for(Entity entity : Objects.requireNonNull(Bukkit.getWorld("world")).getEntities()){
             if(entity instanceof Item){
