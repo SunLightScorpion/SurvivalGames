@@ -127,7 +127,7 @@ public class SurvivalGamesAPI {
         startMatch();
         setupPlayers();
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "worldborder set 8 600");
-        Bukkit.broadcastMessage(SurvivalGamesAPI.getPrefix()+"§cDie Worldboarder wird sich verkleinern, es ist 10 Minuten Zeit!");
+        Bukkit.broadcastMessage(SurvivalGamesAPI.getPrefix()+"§cThe Worldboarder will reduce, it is 10 minutes!");
         Bukkit.getScheduler().scheduleSyncRepeatingTask(SurvivalGames.getPlugin(), () -> {
             t++;
             if(t == 320){
@@ -135,12 +135,12 @@ public class SurvivalGamesAPI {
                 int b = r.nextInt(5);
                 if(b == 0){
                     m = true;
-                    Bukkit.broadcastMessage(getPrefix()+"§cEs wird Zeit, dass die Gestalten auferstehen...");
+                    Bukkit.broadcastMessage(getPrefix()+"§cIt's time to resurrect the figures....");
                 }else if(b == 1){
                     s = true;
-                    Bukkit.broadcastMessage(getPrefix()+"§aEine Geistige Stärke kommt zu euch...");
+                    Bukkit.broadcastMessage(getPrefix()+"§aA spiritual strength comes to you....");
                 }else{
-                    Bukkit.broadcastMessage(getPrefix()+"§aEs wird nichts geschehen!");
+                    Bukkit.broadcastMessage(getPrefix()+"§aNothing will happen!");
                 }
             }
             if(t == 330){
