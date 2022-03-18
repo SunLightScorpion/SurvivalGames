@@ -204,6 +204,7 @@ public class SurvivalGamesListener implements Listener{
         e.setJoinMessage(SurvivalGamesAPI.getPrefix()+"§a"+p.getName()+" §7joined the game!");
         SurvivalGamesAPI.setupPlayers();
         if(!SurvivalGamesAPI.isArenaFinish()){
+            p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cThe arena must be set!");
             return;
         }
         int players = Bukkit.getOnlinePlayers().size()-1;
@@ -218,9 +219,6 @@ public class SurvivalGamesListener implements Listener{
             SurvivalGamesAPI.freeze.add(p);
         }
         //System.out.println("all: "+players+" - "+ SurvivalGamesAPI.survivalGamesPlayer.size());
-        if(!SurvivalGamesAPI.isArenaFinish()){
-            p.sendMessage(SurvivalGamesAPI.getPrefix()+"§cThe arena must be set!");
-        }
     }
 
     @EventHandler
